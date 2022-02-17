@@ -12,6 +12,11 @@ follows:
    releases, and Linux kernel updates. They're also made to fix bugs and add
    features to the build infrastructure.
 
+## v0.1.0
+
+* Fork official system
+* enable can utilities and modules
+
 ## v2.13.2
 
 This is a Buildroot and Erlang bug fix release that also adds support for
