@@ -11,6 +11,9 @@ follows:
 3. Patch version updates are made for Buildroot minor releases, Erlang/OTP
    releases, and Linux kernel updates. They're also made to fix bugs and add
    features to the build infrastructure.
+## v0.2.0
+
+* Rename system
 
 ## v0.1.0
 
