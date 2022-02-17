@@ -1,8 +1,8 @@
-defmodule NervesSystemBbb.MixProject do
+defmodule NervesSystemBbbCan.MixProject do
   use Mix.Project
 
-  @github_organization "nerves-project"
-  @app :nerves_system_bbb
+  @github_organization "connorrigby"
+  @app :nerves_system_bbb_can
   @source_url "https://github.com/#{@github_organization}/#{@app}"
   @version Path.join(__DIR__, "VERSION")
            |> File.read!()
