@@ -26,6 +26,17 @@ follows:
 * Fork official system
 * enable can utilities and modules
 
+## v2.13.4
+
+* Changes
+  * Fix USB/Ethernet support on the BeagleBone Green Gateway
+  * Fix regression in v2.13.3 for loading device tree overlays
+  * Pull in upstream Linux SquashFS patch to improve file system performance
+
+* Updated dependencies
+  * [nerves_system_br v1.18.6](https://github.com/nerves-project/nerves_system_br/releases/tag/v1.18.6)
+  * linux 5.10.100
+
 ## v2.13.3
 
 This is mostly a Buildroot and Erlang bug and security fix release. It should be
