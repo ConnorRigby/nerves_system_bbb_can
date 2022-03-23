@@ -12,6 +12,11 @@ follows:
    releases, and Linux kernel updates. They're also made to fix bugs and add
    features to the build infrastructure.
 
+## v0.5.0
+
+* add custom device tree
+* fix bluetooth with blue heron
+
 ## v0.4.0
 
 * Update base system
