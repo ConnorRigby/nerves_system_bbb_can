@@ -12,6 +12,10 @@ follows:
    releases, and Linux kernel updates. They're also made to fix bugs and add
    features to the build infrastructure.
 
+## v0.6.0
+
+* enable PWM
+
 ## v0.5.0
 
 * add custom device tree
