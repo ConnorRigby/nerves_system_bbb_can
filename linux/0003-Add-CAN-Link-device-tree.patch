@@ -1,12 +1,12 @@
-From 804c7ece7294bcc7e7f686811ba8958e1b128651 Mon Sep 17 00:00:00 2001
+From 899dbbfc2c220c1a04b3dc6b8f1acb7da3ba1839 Mon Sep 17 00:00:00 2001
 From: Connor Rigby <connorr@hey.com>
 Date: Wed, 23 Mar 2022 11:52:13 -0600
 Subject: [PATCH] Add CAN Link device tree
 
 ---
  arch/arm/boot/dts/Makefile           |   3 +-
- arch/arm/boot/dts/am335x-canlink.dts | 656 +++++++++++++++++++++++++++
- 2 files changed, 658 insertions(+), 1 deletion(-)
+ arch/arm/boot/dts/am335x-canlink.dts | 694 +++++++++++++++++++++++++++
+ 2 files changed, 696 insertions(+), 1 deletion(-)
  create mode 100644 arch/arm/boot/dts/am335x-canlink.dts
 
 diff --git a/arch/arm/boot/dts/Makefile b/arch/arm/boot/dts/Makefile
@@ -25,10 +25,10 @@ index 6ce6defef..82854efa8 100644
  	omap4-droid4-xt894.dtb \
 diff --git a/arch/arm/boot/dts/am335x-canlink.dts b/arch/arm/boot/dts/am335x-canlink.dts
 new file mode 100644
-index 000000000..73181fc16
+index 000000000..d3f6af7a5
 --- /dev/null
 +++ b/arch/arm/boot/dts/am335x-canlink.dts
-@@ -0,0 +1,656 @@
+@@ -0,0 +1,694 @@
 +// SPDX-License-Identifier: GPL-2.0-only
 +/*
 + * Copyright (C) 2012 Texas Instruments Incorporated - https://www.ti.com/
@@ -188,12 +188,12 @@ index 000000000..73181fc16
 +	};
 +
 +	/* GPS */
-+	uart2_pins: pinmux_uart2_pins {
-+		pinctrl-single,pins = <
-+			AM33XX_PADCONF(AM335X_PIN_SPI0_SCLK, PIN_INPUT_PULLUP, MUX_MODE1)	/* (A17) spi0_sclk.uart2_rxd */
-+			AM33XX_PADCONF(AM335X_PIN_SPI0_D0, PIN_OUTPUT_PULLDOWN, MUX_MODE1)	/* (B17) spi0_d0.uart2_txd */
-+		>;
-+	};
++	// uart2_pins: pinmux_uart2_pins {
++	// 	pinctrl-single,pins = <
++	// 		AM33XX_PADCONF(AM335X_PIN_SPI0_SCLK, PIN_INPUT_PULLUP, MUX_MODE1)	/* (A17) spi0_sclk.uart2_rxd */
++	// 		AM33XX_PADCONF(AM335X_PIN_SPI0_D0, PIN_OUTPUT_PULLDOWN, MUX_MODE1)	/* (B17) spi0_d0.uart2_txd */
++	// 	>;
++	// };
 +
 +	/* DSM2 */
 +	uart4_pins: pinmux_uart4_pins {
@@ -302,6 +302,23 @@ index 000000000..73181fc16
 +			// 0x164 0x12	/* eCAP0_in_PWM0_out.spi1_cs1 OUTPUT_PULLUP | MODE2 */
 +		>;
 +	};
++
++	ehrpwm0_pins_default: ehrpwm0_pins_default {
++		pinctrl-single,pins = <
++			AM33XX_PADCONF(AM335X_PIN_SPI0_SCLK, PIN_OUTPUT, MUX_MODE3) /* (A17) spi0_sclk.ehrpwm0A */
++			AM33XX_PADCONF(AM335X_PIN_SPI0_D0, PIN_OUTPUT, MUX_MODE3)	/* (B17) spi0_d0.uart2_txd */
++		>;
++	};
++
++  ehrpwm1_pins_default: ehrpwm1_pins_default {
++		pinctrl-single,pins = <
++			AM33XX_PADCONF(AM335X_PIN_GPMC_A2, PIN_OUTPUT, MUX_MODE6) /* (U14) gpmc_a2.ehrpwm1A */
++			AM33XX_PADCONF(AM335X_PIN_GPMC_A3, PIN_OUTPUT, MUX_MODE6) /* (T14) gpmc_a3.ehrpwm1B */
++
++			// AM33XX_PADCONF(AM335X_PIN_GPMC_AD14, PIN_OUTPUT, MUX_MODE7) /* (V13) gpmc_ad11.gpio1[14] */
++			// AM33XX_PADCONF(AM335X_PIN_GPMC_AD15, PIN_INPUT_PULLUP, MUX_MODE7) /* (U13) gpmc_ad11.gpio1[15] */
++		>;
++	};
 +};
 +
 +&uart0 {
@@ -318,12 +335,12 @@ index 000000000..73181fc16
 +	status = "okay";
 +};
 +
-+&uart2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart2_pins>;
++// &uart2 {
++// 	pinctrl-names = "default";
++// 	pinctrl-0 = <&uart2_pins>;
 +
-+	status = "okay";
-+};
++// 	status = "okay";
++// };
 +
 +&uart4 {
 +	pinctrl-names = "default";
@@ -655,7 +672,7 @@ index 000000000..73181fc16
 +		output-high;
 +	};
 +};
-+
++/*
 +&epwmss0 {
 +	status = "okay";
 +};
@@ -685,6 +702,28 @@ index 000000000..73181fc16
 +	pinctrl-0 = <&eqep2_pins>;
 +	status = "okay";
 +};
++*/
++
++&epwmss0 {
++  status = "okay";
++
++  ehrpwm0: pwm@200 {
++    pinctrl-names = "default";
++    pinctrl-0 = <&ehrpwm0_pins_default>;
++    status = "okay";
++  };
++};
++
++&epwmss1 {
++  status = "okay";
++
++  ehrpwm1: pwm@200 {
++    pinctrl-names = "default";
++    pinctrl-0 = <&ehrpwm1_pins_default>;
++    status = "okay";
++  };
++};
+\ No newline at end of file
 -- 
 2.35.1
 

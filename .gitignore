@@ -21,3 +21,5 @@ erl_crash.dump
 /archive.log
 /.nerves
 /linux/dtb
+ghr*
+
