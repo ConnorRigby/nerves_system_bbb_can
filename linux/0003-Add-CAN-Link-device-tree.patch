@@ -1,12 +1,12 @@
-From 899dbbfc2c220c1a04b3dc6b8f1acb7da3ba1839 Mon Sep 17 00:00:00 2001
+From f041c41bbc3e19409bca87205649b5fa2d2ddfca Mon Sep 17 00:00:00 2001
 From: Connor Rigby <connorr@hey.com>
 Date: Wed, 23 Mar 2022 11:52:13 -0600
 Subject: [PATCH] Add CAN Link device tree
 
 ---
  arch/arm/boot/dts/Makefile           |   3 +-
- arch/arm/boot/dts/am335x-canlink.dts | 694 +++++++++++++++++++++++++++
- 2 files changed, 696 insertions(+), 1 deletion(-)
+ arch/arm/boot/dts/am335x-canlink.dts | 698 +++++++++++++++++++++++++++
+ 2 files changed, 700 insertions(+), 1 deletion(-)
  create mode 100644 arch/arm/boot/dts/am335x-canlink.dts
 
 diff --git a/arch/arm/boot/dts/Makefile b/arch/arm/boot/dts/Makefile
@@ -25,10 +25,10 @@ index 6ce6defef..82854efa8 100644
  	omap4-droid4-xt894.dtb \
 diff --git a/arch/arm/boot/dts/am335x-canlink.dts b/arch/arm/boot/dts/am335x-canlink.dts
 new file mode 100644
-index 000000000..d3f6af7a5
+index 000000000..3c6d3f45c
 --- /dev/null
 +++ b/arch/arm/boot/dts/am335x-canlink.dts
-@@ -0,0 +1,694 @@
+@@ -0,0 +1,698 @@
 +// SPDX-License-Identifier: GPL-2.0-only
 +/*
 + * Copyright (C) 2012 Texas Instruments Incorporated - https://www.ti.com/
@@ -401,8 +401,12 @@ index 000000000..d3f6af7a5
 +	interrupt-names = "mc", "vbus";
 +};
 +
++// &usb1 {
++// 	dr_mode = "host";
++// };
++
 +&usb1 {
-+	dr_mode = "host";
++	dr_mode = "peripheral";
 +};
 +
 +&i2c0 {
