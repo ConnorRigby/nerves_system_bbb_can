@@ -12,6 +12,10 @@ follows:
    releases, and Linux kernel updates. They're also made to fix bugs and add
    features to the build infrastructure.
 
+## v0.7.0
+
+* change other usb port to peripheral mode
+
 ## v0.6.0
 
 * enable PWM
