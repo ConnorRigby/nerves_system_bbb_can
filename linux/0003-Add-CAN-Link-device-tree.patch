@@ -1,12 +1,12 @@
-From f041c41bbc3e19409bca87205649b5fa2d2ddfca Mon Sep 17 00:00:00 2001
+From 78b29ff71d1de3e3cf71e9536977f35a1af9c8b6 Mon Sep 17 00:00:00 2001
 From: Connor Rigby <connorr@hey.com>
-Date: Wed, 23 Mar 2022 11:52:13 -0600
+Date: Fri, 25 Mar 2022 13:36:07 -0600
 Subject: [PATCH] Add CAN Link device tree
 
 ---
  arch/arm/boot/dts/Makefile           |   3 +-
- arch/arm/boot/dts/am335x-canlink.dts | 698 +++++++++++++++++++++++++++
- 2 files changed, 700 insertions(+), 1 deletion(-)
+ arch/arm/boot/dts/am335x-canlink.dts | 699 +++++++++++++++++++++++++++
+ 2 files changed, 701 insertions(+), 1 deletion(-)
  create mode 100644 arch/arm/boot/dts/am335x-canlink.dts
 
 diff --git a/arch/arm/boot/dts/Makefile b/arch/arm/boot/dts/Makefile
@@ -25,10 +25,10 @@ index 6ce6defef..82854efa8 100644
  	omap4-droid4-xt894.dtb \
 diff --git a/arch/arm/boot/dts/am335x-canlink.dts b/arch/arm/boot/dts/am335x-canlink.dts
 new file mode 100644
-index 000000000..3c6d3f45c
+index 000000000..5a3a5baed
 --- /dev/null
 +++ b/arch/arm/boot/dts/am335x-canlink.dts
-@@ -0,0 +1,698 @@
+@@ -0,0 +1,699 @@
 +// SPDX-License-Identifier: GPL-2.0-only
 +/*
 + * Copyright (C) 2012 Texas Instruments Incorporated - https://www.ti.com/
@@ -168,6 +168,7 @@ index 000000000..3c6d3f45c
 +		pinctrl-single,pins = <
 +			AM33XX_PADCONF(AM335X_PIN_UART1_CTSN, PIN_INPUT_PULLUP, MUX_MODE3)	/* (D18) uart1_ctsn.I2C2_SDA */
 +			AM33XX_PADCONF(AM335X_PIN_UART1_RTSN, PIN_INPUT_PULLUP, MUX_MODE3)	/* (D17) uart1_rtsn.I2C2_SCL */
++			AM33XX_PADCONF(AM335X_PIN_MCASP0_AHCLKX, PIN_INPUT_PULLDOWN, MUX_MODE7) /* (A14) gpio3[21] */
 +		>;
 +	};
 +
@@ -438,7 +439,7 @@ index 000000000..3c6d3f45c
 +			#address-cells = <1>;
 +			#size-cells = <0>;
 +			ax8975@c {
-+				compatible = "ak,ak8975";
++				compatible = "ak8975";
 +				reg = <0x0c>;
 +			};
 +		};
