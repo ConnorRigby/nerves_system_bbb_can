@@ -12,6 +12,12 @@ follows:
    releases, and Linux kernel updates. They're also made to fix bugs and add
    features to the build infrastructure.
 
+## v0.8.0
+
+* change kernel and device tree to FIT image
+* fix IMU and Pressure sensor
+* fix configfs
+
 ## v0.7.0
 
 * change other usb port to peripheral mode
