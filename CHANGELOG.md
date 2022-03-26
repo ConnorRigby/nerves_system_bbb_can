@@ -12,6 +12,10 @@ follows:
    releases, and Linux kernel updates. They're also made to fix bugs and add
    features to the build infrastructure.
 
+## v0.9.0
+
+* more pwm tweaks
+
 ## v0.8.0
 
 * change kernel and device tree to FIT image
